@@ -1,0 +1,22 @@
+{
+  "name": "signedpoll",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dateformat": "^3.0.3",
+    "express": "^4.17.0",
+    "googleapis": "^40.0.0",
+    "reload": "^3.0.1",
+    "socket.io": "^2.2.0"
+  },
+  "engines": {
+    "node": "10.14.0"
+  }
+}

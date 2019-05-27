@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link>
+
+<head>
+  <title>Home Hero Poll</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="public/css/style.css"> -->
+  <link rel="icon" href="https://www.homehero.co.il/assets/images/favicon/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var socket = io.connect();
+      // scoket.emit('get_new_data')
+      socket.on('change_address', function (data) {
+        document.getElementById('full_address').value = data.full_address;
+        document.getElementById('sent').value = data.sent;
+        document.getElementById('index').value = data.index;
+        document.getElementById('id').value = data.id;
+        document.getElementById('seller').value = data.seller;
+        document.getElementById('date').value = data.date;
+        document.getElementById('city').value = data.city;
+        document.getElementById('address').value = data.address;
+        document.getElementById('seller_name').value = data.seller_name;
+        document.getElementById('seller_phone').value = data.seller_phone;
+        document.getElementById('expert_name').value = data.expert_name;
+        document.getElementById('expert_phone').value = data.expert_phone;
+        document.getElementById('meeting_date').value = data.meeting_date;
+        document.getElementById('meeting_time').value = data.meeting_time;
+        document.getElementById('full_address').value = data.full_address;
+        document.getElementById('sent_before').value = data.sent_before;
+        document.getElementById('happened').value = data.happened;
+        document.getElementById('signed').value = data.signed;
+        document.getElementById('undecided').value = data.undecided;
+        document.getElementById('reason').value = data.reason;
+        document.getElementById('expert_sms_time').value = data.expert_sms_time;
+        document.getElementById('expert_sms_unix').value = data.expert_sms_unix;
+        document.getElementById('second_seller_sms_date').value = data.second_seller_sms_date;
+        document.getElementById('second_seller_sms_time').value = data.second_seller_sms_time;
+        document.getElementById('second_seller_sms_unix').value = data.second_seller_sms_unix;
+        document.getElementById('third_seller_sms_date').value = data.third_seller_sms_date;
+        document.getElementById('third_seller_sms_time').value = data.third_seller_sms_time;
+        document.getElementById('third_seller_sms_unix').value = data.third_seller_sms_unix;
+      });
+    });
+  </script>
+
+  <!-- <script>
+    var form = document.getElementById('pollForm');
+
+    try {
+      form.addEventListener("submit", submitFn, false);
+    } catch (e) {
+      form.attachEvent("onsubmit", submitFn); //IE8
+    }
+
+    function submitFn(event) {
+      event.preventDefault();
+      var boxes = document.getElementsByClassName('checkbox');
+      var checked = [];
+      for (var i = 0; boxes[i]; ++i) {
+        if (boxes[i].checked) {
+          checked.push(boxes[i].name);
+        }
+      }
+
+      var checkedStr = checked.join();
+
+      document.getElementById('checkbox_str').value = checkedStr;
+      form.submit();
+
+      return false;
+    }
+  </script> -->
+
+  <script>
+    function showUndecided() {
+      document.getElementById('undecidedDiv').style.display = 'block';
+    }
+
+    function dontShowUndecided() {
+      document.getElementById('undecidedDiv').style.display = 'none';
+    }
+  </script>
+
+  <script type="text/javascript">
+    function onRefresh() {
+      socket.emit('refresh_page');
+    }
+    window.onbeforeunload = onRefresh;
+  </script>
+
+
+  <!-- <script>
+    $(document).ready(function () {
+      $("#submitButton").click(function () {
+        $("#checkbox_str").value("Hello world!");
+      });
+    });
+  </script> -->
+</head>
+
+<body>
+  <div class=imgDiv>
+    <img class=logoImg src="https://www.homehero.co.il/assets/images/headerlogo.svg">
+  </div>
+  <div class=formDiv>
+    <form action="test.php" method="post" id=pollForm name="submit-to-google-sheet" align=center dir="rtl"
+      onSubmit="alert('הטופס נשלח בהצלחה! \n תודה רבה! :)');">
+
+
+      <div class="upperDiv">
+        <h1 style="margin-top:2px"> קבענו, נפגשנו והכרנו. </h1>
+        <!-- <h1 style="margin-top:2px"> חתמת אה, יא אפס! </h1> -->
+        <h2 style="margin-top:2px"> מודים – נהנינו מאוד!</h2>
+        <h3 style="margin-top:2px"> ועכשיו נשמח לשמוע איך היה לך, כדי שנוכל לשפר ולהשתפר. </h3>
+        <!-- <input class=addressInput readonly="readonly" id="full_address" name="full_address" type="text"
+          value="שנקר 3, הרצליה"> -->
+        <br>
+        <input id="sent" name="sent" type="text" hidden="hidden" value="N">
+        <input id="index" name="index" type="text" hidden="hidden" value="">
+        <input id="id" name="id" type="text" hidden="hidden" value="">
+        <input id="date" name="date" type="text" hidden="hidden" value="">
+        <input id="seller" name="seller" type="text" hidden="hidden" value="">
+        <input id="city" name="city" type="text" hidden="hidden" value="">
+        <input id="address" name="address" type="text" hidden="hidden" value="">
+        <input id="seller_name" name="seller_name" type="text" hidden="hidden" value="">
+        <input id="seller_phone" name="seller_phone" type="text" hidden="hidden" value="">
+        <input id="expert_name" name="expert_name" type="text" hidden="hidden" value="">
+        <input id="expert_phone" name="expert_phone" type="text" hidden="hidden" value="">
+        <input id="meeting_date" name="meeting_date" type="text" hidden="hidden" value="">
+        <input id="meeting_time" name="meeting_time" type="text" hidden="hidden" value="">
+        <input id="full_address" name="full_address" type="text" hidden="hidden" value="">
+        <input id="sent_before" name="sent_before" type="text" hidden="hidden" value="">
+        <input id="happened" name="happened" type="text" hidden="hidden" value="">
+        <input id="signed" name="signed" type="text" hidden="hidden" value="">
+        <input id="undecided" name="undecided" type="text" hidden="hidden" value="">
+        <input id="reason" name="reason" type="text" hidden="hidden" value="">
+        <input id="expert_sms_time" name="expert_sms_time" type="text" hidden="hidden" value="">
+        <input id="expert_sms_unix" name="expert_sms_unix" type="text" hidden="hidden" value="">
+        <input id="second_seller_sms_date" name="second_seller_sms_date" type="text" hidden="hidden" value="">
+        <input id="second_seller_sms_time" name="second_seller_sms_time" type="text" hidden="hidden" value="">
+        <input id="second_seller_sms_unix" name="second_seller_sms_unix" type="text" hidden="hidden" value="">
+        <input id="third_seller_sms_date" name="third_seller_sms_date" type="text" hidden="hidden" value="">
+        <input id="third_seller_sms_time" name="third_seller_sms_time" type="text" hidden="hidden" value="">
+        <input id="third_seller_sms_unix" name="third_seller_sms_unix" type="text" hidden="hidden" value="">
+        <input id="checkbox_str" name="checkbox_str" type="text" hidden="hidden" value="">
+      </div>
+
+      <div class=meetingDiv>
+        <h3 style="margin: 5px;"> אז איך זכינו בך? מה גרם לבחור בנו? </h3>
+        <div class=answersDiv>
+          <input name="firstQuestion[]" type="radio" value="marketing" required> יכולות השיווק והבאת קונים <br>
+          <input name="firstQuestion[]" type="radio" value="commission"> העמלה <br>
+          <input name="firstQuestion[]" type="radio" value="tech"> הטכנולוגיה והאתר של Home Hero <br>
+          <input name="firstQuestion[]" type="radio" value="dd"> הבדיקה המשפטית <br>
+          <input name="firstQuestion[]" type="radio" value="agent"> המומחה! <br>
+          <input name="commentsFirst" type="text" placeholder="עוד משהו?"> <br>
+        </div>
+        <!-- <input type="text" hidden="hidden" name="checkboxStr" id="checkbox_str" value=""> -->
+      </div>
+
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+      <script type="text/javascript">
+        $(function () {
+          $("#pollForm").click(function () {
+            //Create an Array.
+            var selected = new Array();
+
+            //Reference the CheckBoxes and insert the checked CheckBox value in Array.
+            $("#pollForm input[type=checkbox]:checked").each(function () {
+              selected.push(this.value);
+              console.log(selected);
+            });
+            // $('input[name=firstQuestion[]]:checked', '#pollForm').val(selected)
+            // //Display the selected CheckBox values.
+            // if (selected.length > 0) {
+            selected = selected.join(",");
+            console.log(selected);
+
+            // $("#checkbox_str").text(selected);
+            // $("#checkbox_str").attr("value", "someText");
+            // alert("Selected values: " + selected.join(","));
+            // }
+
+            // $('#pollForm input[type=checkbox]:checked').val(selected);
+          });
+        });
+      </script>
+
+      <br>
+
+      <div class=exclusivityDiv>
+        <h3 style="margin: 5px;" class=divheader> נשמח לשמוע איך היייתה הפגישה עם המומחה? </h3>
+        <div class=answersDiv>
+          <input name="secondQuestion" type="radio" value="commission" required> הייתה פגישה נהדרת! <br>
+          <input name="secondQuestion" type="radio" value="tech"> היה בסדר. <br>
+          <input name="secondQuestion" type="radio" value="dd"> היה יכול להיות יותר טוב <br>
+          <input name="commentsSecond" type="text" placeholder="יש לי משהו אחר להגיד"> <br>
+        </div> 
+      </div>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
+
+      <!-- <div id=undecidedDiv class=undecidedDiv style="display: none">
+        <h3 style="margin: 5px;" class=divheader>שאלה שלישית?</h3>
+        <input name="undecided" type="radio" value="1"> כן <br>
+        <input name="undecided" type="radio" value="0"> לא 
+      </div> -->
+
+      <!-- <div>
+        <h3 style="margin: 5px;" id=divheader>הערות:</h3>
+        <input id="txtInput" class="commentsTextField" name="reason" type="textarea"
+          placeholder="כתוב את סיבת ההתנגדות\הערות במידה ויש"><br><br>
+          
+          <script>
+            $("#txtInput").autogrow();
+          </script>
+        </div> -->
+      <br> <br>
+
+      <button id="submitButton" class="button" type="submit"> שלח טופס </button>
+      <!-- <button onclick="location.href = 'www.google.com';" id="submitButton" class="button" type="submit">שלח   -->
+      <!-- <script>
+        $('#pollForm').serialize();
+      </script> -->
+    </form>
+  </div>
+
+
+
+
+  <!-- <script type="text/javascript">
+    document.getElementById("submitButton").onclick = function () {
+      location.href = "www.homehero.co.il";
+    };
+  </script> -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/autosize.js/3.0.15/autosize.min.js'></script>
+  <script>
+    // Automatically size all of your <textarea> elements as you type
+    autosize(document.querySelectorAll('textarea'));
+  </script>
+
+  <script>
+    const prefix = "https://spreadsheets.google.com/feeds/list/";
+    const sheetID = "1I6ADcGlCqYTH7bQD9v19FLvNcbZUjCkUiq82sgQHlnU";
+    const postfix = "/od6/public/values?alt=json"
+
+    const spreadsheetURL = prefix + sheetID + postfix;
+
+    $.getJSON(spreadsheetURL, function (data) {
+      console.log(data)
+    });
+  </script>
+
+  <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
+  <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+  <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxElRxZ2r9xswkRL1oSRTjQXlJ2XfrZOhhG3Dc7_A1U1iZFhys/exec'
+    const form = document.forms['submit-to-google-sheet']
+
+    form.addEventListener('submit', e => {
+      console.log(form)
+      e.preventDefault()
+      fetch(scriptURL, {
+          method: 'POST',
+          body: new FormData(form)
+        })
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+</body>
