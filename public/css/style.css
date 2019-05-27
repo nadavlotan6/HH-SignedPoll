@@ -15,8 +15,8 @@
   overflow: hidden;
 } */
 input {
-  text-align: right;
-  /* clear: both; */
+    text-align: right;
+    /* clear: both; */
 }
 
 
@@ -46,8 +46,8 @@ input {
 }
 
 .answersDiv {
-    width: 70%;
-    margin-right: 55%;
+    width: 65%;
+    margin-right: 50%;
     text-align: right;
     align-self: center;
     align-content: center;
@@ -59,8 +59,9 @@ input {
     margin-top: 4px;
     margin-bottom: 5px;
     margin-block-start: 4px;
-    margin-block-end: 5px; 
+    margin-block-end: 5px;
 }
+
 /* .h1, .h2, .h3, h1, h2, h3,
 
 .h3 {
@@ -100,7 +101,7 @@ input[type='radio']:after {
     /* background-color: #d1d3d1; */
     /* content: ''; */
     display: inline-block;
-    visibility: visible; 
+    visibility: visible;
     /* border: 3px solid white; */
 }
 
