@@ -1,7 +1,8 @@
 @font-face {
     font-family: "almoni-tzar";
-    src: url("almoni-dl-aaa-700.woff") format('woff');
+    src: url("fonts/almoni-tzar-aaa-400.woff") format('woff');
 }
+
 
 .button {
     font-family: "almoni-tzar";
@@ -17,16 +18,11 @@
     border-radius: 30px;
 }
 
-/* form {
-  overflow: hidden;
-} */
 input {
     font-family: "almoni-tzar";
     text-align: right;
-    /* clear: both; */
+
 }
-
-
 
 .checkbox {
     font-family: "almoni-tzar";
@@ -49,7 +45,6 @@ input {
 }
 
 .upperDiv {
-    /* position: absolute; */
     position: relative;
 }
 
@@ -102,49 +97,30 @@ input[type='radio']:after {
     width: 15px;
     height: 15px;
     border-radius: 15px;
-    /* top: -2px; */
-    /* left: -1px; */
     position: relative;
-    /* background-color: #d1d3d1; */
-    /* content: ''; */
     display: inline-block;
     visibility: visible;
-    /* border: 3px solid white; */
+
 }
 
 input[type=checkbox]:checked:after {
     font-family: "almoni-tzar";
     width: 15px;
     height: 15px;
-    /* border-radius: 10px; */
-    /* top: -2px; */
-    /* left: -2px; */
-    /* bottom: 3px; */
-    /* right:3px; */
     position: relative;
-    /* background-color: #70CBB3; */
-    /* content: ' '; */
-    /* color:#70CBB3; */
     display: inline-block;
     visibility: visible;
-    /* border: 2px solid white; */
 }
 
 input[type='radio']:checked:after {
     font-family: "almoni-tzar";
     width: 15px;
     height: 15px;
-    /* border-radius: 10px; */
-    /* top: -2px; */
-    /* right:3px; */
-    /* left: -3px; */
     position: relative;
     background-color: #70CBB3;
-    /* content: ' '; */
     color: #70CBB3;
     display: inline-block;
     visibility: visible;
-    /* border: 2px solid white; */
 }
 
 .meetingDiv,
@@ -154,9 +130,6 @@ input[type='radio']:checked:after {
     font-family: "almoni-tzar";
 }
 
-/* .notesDiv {
-
-} */
 
 .commentsTextField {
     text-align: center;
