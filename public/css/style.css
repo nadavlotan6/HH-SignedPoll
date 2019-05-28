@@ -1,4 +1,10 @@
+@font-face {
+    font-family: "almoni-tzar";
+    src: url("almoni-dl-aaa-700.woff") format('woff');
+}
+
 .button {
+    font-family: "almoni-tzar";
     background-color: #70CBB3;
     border: none;
     color: white;
@@ -15,6 +21,7 @@
   overflow: hidden;
 } */
 input {
+    font-family: "almoni-tzar";
     text-align: right;
     /* clear: both; */
 }
@@ -22,11 +29,12 @@ input {
 
 
 .checkbox {
-
+    font-family: "almoni-tzar";
     float: right;
 }
 
 .heading {
+    font-family: "almoni-tzar";
     font-weight: bold
 }
 
@@ -46,29 +54,26 @@ input {
 }
 
 .answersDiv {
+    font-family: "almoni-tzar";
     width: 78%;
-    margin-right: 45%;
+    margin-right: 50%;
     text-align: right;
     align-self: center;
     align-content: center;
     max-width: 700px;
     margin: auto;
+    font-family: "almoni-tzar";
 }
 
 .divheader {
+    font-family: "almoni-tzar";
     margin-top: 4px;
     margin-bottom: 5px;
     margin-block-start: 4px;
     margin-block-end: 5px;
 }
 
-/* .h1, .h2, .h3, h1, h2, h3,
 
-.h3 {
-    padding: 0px;
-    margin: 0px;
-}
-*/
 .logoImg {
     display: block;
     margin-left: auto;
@@ -79,6 +84,7 @@ input {
 }
 
 .formDiv {
+    font-family: "almoni-tzar";
     width: 100%;
     align-content: center;
     align-self: center;
@@ -92,6 +98,7 @@ input {
 }
 
 input[type='radio']:after {
+    font-family: "almoni-tzar";
     width: 15px;
     height: 15px;
     border-radius: 15px;
@@ -106,6 +113,7 @@ input[type='radio']:after {
 }
 
 input[type=checkbox]:checked:after {
+    font-family: "almoni-tzar";
     width: 15px;
     height: 15px;
     /* border-radius: 10px; */
@@ -123,6 +131,7 @@ input[type=checkbox]:checked:after {
 }
 
 input[type='radio']:checked:after {
+    font-family: "almoni-tzar";
     width: 15px;
     height: 15px;
     /* border-radius: 10px; */
@@ -142,6 +151,7 @@ input[type='radio']:checked:after {
 .exclusivityDiv,
 .undecidedDiv {
     font-size: 20px;
+    font-family: "almoni-tzar";
 }
 
 /* .notesDiv {
@@ -153,9 +163,11 @@ input[type='radio']:checked:after {
     font-size: 14px;
     width: 74%;
     height: 50px;
+    font-family: "almoni-tzar";
 }
 
 .addressInput {
+    font-family: "almoni-tzar";
     text-align: center;
     font-size: 18px;
     font-weight: bold;
@@ -166,10 +178,13 @@ input[type='radio']:checked:after {
 h1,
 h2,
 h3 {
+    font-family: "almoni-tzar";
     color: #1D3136;
 }
 
 h3,
 .h3 {
     margin-bottom: 2px;
+    font-family: "almoni-tzar"
 }
+
